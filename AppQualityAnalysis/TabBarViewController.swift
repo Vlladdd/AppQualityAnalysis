@@ -1,19 +1,19 @@
 //
-//  ViewController.swift
+//  TabBarViewController.swift
 //  AppQualityAnalysis
 //
-//  Created by Vlad Nechiporenko on 02.11.2021.
+//  Created by Vlad Nechiporenko on 04.12.2021.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
 
 }
-
