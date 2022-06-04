@@ -10,13 +10,13 @@ import XCTest
 
 class AppQualityAnalysisTests: XCTestCase {
     
-    var metrics: Metrics!
+    var metrics: MetricModel!
     var review: Review!
-    var reviews: Reviews!
+    var reviews: ReviewModel!
     
     override func setUp() {
-        metrics = Metrics()
-        reviews = Reviews()
+        metrics = MetricModel()
+        reviews = ReviewModel()
         metrics.reviewsByCategories = [String:[Review]]()
     }
 
@@ -60,11 +60,11 @@ class AppQualityAnalysisTests: XCTestCase {
     }
     
     func testCheckAppIDWrong() {
-        XCTAssertNotEqual(reviews.checkAppID(appID: "0"), true, "Wrong calculations!")
+        XCTAssertNotEqual(reviews.checkAppIDinAppStore(appID: "0"), true, "Wrong calculations!")
     }
     
     func testCheckAppIDCorrect() {
-        XCTAssertNotEqual(reviews.checkAppID(appID: "284882215"), false, "Wrong calculations!")
+        XCTAssertNotEqual(reviews.checkAppIDinAppStore(appID: "284882215"), false, "Wrong calculations!")
     }
     
     func testCheckDateWrong() {
@@ -106,19 +106,19 @@ class AppQualityAnalysisTests: XCTestCase {
     }
     
     func testCheckAppIDDatabaseWrong() {
-        XCTAssertNotEqual(reviews.checkAppIDDatabase(appID: "0"), true, "Wrong calculations!")
+        XCTAssertNotEqual(reviews.checkAppIDinDatabase(appID: "0"), true, "Wrong calculations!")
     }
     
     func testCheckAppIDDatabaseCorrect() {
-        XCTAssertNotEqual(reviews.checkAppIDDatabase(appID: "284882215"), false, "Wrong calculations!")
+        XCTAssertNotEqual(reviews.checkAppIDinDatabase(appID: "284882215"), false, "Wrong calculations!")
     }
     
     func testCheckReviewsCountDatabaseWrong() {
-        XCTAssertEqual(reviews.reviewsCoundDB(appID: "0"), 0, "Wrong calculations!")
+        XCTAssertEqual(reviews.reviewsCountInDB(appID: "0"), 0, "Wrong calculations!")
     }
     
     func testCheckReviewsCountDatabaseCorrect() {
-        XCTAssertNotEqual(reviews.reviewsCoundDB(appID: "284882215"), 0, "Wrong calculations!")
+        XCTAssertNotEqual(reviews.reviewsCountInDB(appID: "284882215"), 0, "Wrong calculations!")
     }
     
     func testRatingCorrect() {

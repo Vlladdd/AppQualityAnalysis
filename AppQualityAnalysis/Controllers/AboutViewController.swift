@@ -2,33 +2,40 @@
 //  AboutViewController.swift
 //  AppQualityAnalysis
 //
-//  Created by Vlad Nechiporenko on 07.12.2021.
+//  Created by Vlad Nechyporenko on 07.12.2021.
 //
 
 import UIKit
 
+//VC that controls view with info about app
 class AboutViewController: UIViewController {
-
+    
+    //MARK: - View functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        actions.createAction(user: users.currentUser, date: Date(), userAction: "Visit about page")
+        userModel.createAction(date: Date(), userAction: "Visited about page")
     }
-    var users: Users!
-    let actions = Actions()
+    
+    //MARK: - Properties
+    
+    var userModel: UserModel!
+    
+    //MARK: - Buttons Functions
 
     @IBAction func toAccountView(_ sender: UIButton) {
         performSegue(withIdentifier: "account", sender: self)
     }
     
+    //MARK: - Segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let AccountVC = segue.destination as? AccountViewController{
-            AccountVC.users = self.users
+            AccountVC.userModel = self.userModel
         }
     }
 
-    
 }

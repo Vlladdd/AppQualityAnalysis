@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  AppQualityAnalysis
 //
-//  Created by Vlad Nechiporenko on 02.11.2021.
+//  Created by Vlad Nechyporenko on 02.11.2021.
 //
 
 import UIKit
@@ -11,14 +11,12 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let configuration = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 7,
             migrationBlock: { migration, oldSchemaVersion in
-                if oldSchemaVersion < 1 {
+                if oldSchemaVersion < 7 {
                     // if you added a new property or removed a property you don't
                     // have to do anything because Realm automatically detects that
                 }
@@ -41,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
 
 }
 

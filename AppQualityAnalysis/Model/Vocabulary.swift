@@ -2,28 +2,38 @@
 //  Vocabulary.swift
 //  AppQualityAnalysis
 //
-//  Created by Vlad Nechiporenko on 11.11.2021.
+//  Created by Vlad Nechyporenko on 11.11.2021.
 //
 
 import Foundation
 
+//class that is used to create a vocabulary in MetricModelConstants
 class Vocabulary {
     
+    //MARK: - Properties
+    
     var vocabulary = [String:Int]()
-    var vocabularyData = ""
+    
+    //text data(for example book)
+    private var vocabularyData = ""
+    
+    //MARK: - Init
     
     init(path: String){
         readText(name: path)
+        studyModel()
     }
     
-    func studyModel()
+    //MARK: - Functions
+    
+    private func studyModel()
     {
         vocabulary = [String:Int]()
         var substring = ""
         vocabularyData = vocabularyData.removingWhitespaces().lowercased().letters
-        for x in vocabularyData {
-            substring += String(x)
-            if substring.count == 2 {
+        for character in vocabularyData {
+            substring += String(character)
+            if substring.count == VocabularyConstants.charactersInSubstring {
                 if vocabulary.keys.contains(substring) {
                     vocabulary[substring]! += 1
                 }
@@ -36,7 +46,7 @@ class Vocabulary {
         print(vocabulary)
     }
     
-    func readText(name: String) {
+    private func readText(name: String) {
         let path = "/Users/vladnechiporenko/Downloads/" + name
         do {
             let fileContents = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
@@ -48,11 +58,8 @@ class Vocabulary {
     }
 }
 
-extension String {
-    func removingWhitespaces() -> String {
-        return components(separatedBy: .whitespaces).joined()
-    }
-    var letters: String {
-        return String(unicodeScalars.filter(CharacterSet.letters.contains))
-    }
+//MARK: - Constants
+
+private struct VocabularyConstants {
+    static let charactersInSubstring = 2
 }
