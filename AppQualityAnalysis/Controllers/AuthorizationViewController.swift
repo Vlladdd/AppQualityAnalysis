@@ -15,23 +15,6 @@ class AuthorizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-        //some random data to test the app
-//        let a = Reviews()
-//        let b = Metrics()
-//        let start = DispatchTime.now()
-//        a.getReviewsFromAppStore(numPages: 10, appId: "284882215")
-//        a.getReviewsFromAppStore(numPages: 10, appId: "324684580")
-//        a.getReviewsFromAppStore(numPages: 8, appId: "880047117")
-//        a.getReviewsFromAppStore(numPages: 2, appId: "603527166")
-//        a.getReviewsFromAppStore(numPages: 10, appId: "564177498")
-//        a.sortReviewsByCategories()
-//        b.reviewsByCategories = a.reviewsByCategories
-//        b.getMetrics()
-//        let end = DispatchTime.now()
-//        let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
-//        let timeInterval = Double(nanoTime) / 1_000_000_000
-//        print(timeInterval)
     }
     
     override func viewDidAppear(_ animated: Bool) {

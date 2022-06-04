@@ -20,11 +20,6 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         makeSourceDropDown()
         makeGraphs()
         addDatePicker()
-        //some random data
-        appID.text = "284882215"
-        reviewsCount.text = "500"
-        version.text = "345.0"
-        date.text = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,10 +83,6 @@ class CompareViewController: UIViewController, ChartViewDelegate {
                         }
                     }
                 case .appStore:
-                    //        reviews.getReviewsFromAppStore(numPages: 10, appId: "324684580")
-                    //        reviews.getReviewsFromAppStore(numPages: 8, appId: "880047117")
-                    //        reviews.getReviewsFromAppStore(numPages: 2, appId: "603527166")
-                    //        reviews.getReviewsFromAppStore(numPages: 10, appId: "564177498")
                     reviewModel.getReviewsFromAppStore(count: Int(reviewsCount)!, appId: appID, completion: {originOfData in
                         switch originOfData {
                         case .appStore:

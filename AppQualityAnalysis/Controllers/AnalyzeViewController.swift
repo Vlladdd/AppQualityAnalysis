@@ -23,9 +23,6 @@ class AnalyzeViewController: UIViewController, ChartViewDelegate {
         alertController.addAction(UIAlertAction(title: "Ок", style: .default))
         makeSourceDropDown()
         makeGraphs()
-        //some test data
-        reviewsCount.text = "500"
-        appID.text = "284882215"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,10 +85,6 @@ class AnalyzeViewController: UIViewController, ChartViewDelegate {
                     reviewModel.findReviews(appID: appID)
                     self.getAndSaveMetrics(reviewModel: reviewModel, fileName: fileName, appID: appID)
                 case .appStore:
-                    //        reviews.getReviewsFromAppStore(numPages: 10, appId: "324684580")
-                    //        reviews.getReviewsFromAppStore(numPages: 8, appId: "880047117")
-                    //        reviews.getReviewsFromAppStore(numPages: 2, appId: "603527166")
-                    //        reviews.getReviewsFromAppStore(numPages: 10, appId: "564177498")
                     reviewModel.getReviewsFromAppStore(count: Int(reviewsCount)!, appId: appID, completion: {originOfData in
                         switch originOfData {
                         case .appStore:
