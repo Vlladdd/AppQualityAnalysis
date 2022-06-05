@@ -73,7 +73,7 @@ class AccountViewController: UIViewController {
         let nickname = nickname.text!
         let password = password.text!
         let name = name.text!
-        if birthDate.text!.isEmpty == false && date == nil {
+        if !birthDate.text!.isEmpty && date == nil {
             showAlert(message: "Wrong date!")
         }
         else if nickname.count > constants.minCharactersInField && password.count > constants.minCharactersInField && name.count > constants.minCharactersInField && nickname.count < constants.maxCharactersInField && password.count < constants.maxCharactersInField && name.count < constants.maxCharactersInField{

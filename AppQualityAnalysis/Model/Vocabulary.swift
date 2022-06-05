@@ -50,7 +50,6 @@ class Vocabulary {
         let path = "/Users/vladnechiporenko/Downloads/" + name
         do {
             let fileContents = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-            
             vocabularyData += fileContents
         } catch {
             print("Opps there was a problem reading the file contents")

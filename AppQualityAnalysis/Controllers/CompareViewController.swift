@@ -274,16 +274,16 @@ class CompareViewController: UIViewController, ChartViewDelegate {
             maxReviewsCount = reviewModel.reviewsCountInDB(appID: appID.text!)
         }
         
-        if source.text! == "" {
+        if source.text!.isEmpty {
             return .failure("Provide source!")
         }
-        if (source.text! == "App Store" || source.text! == "Database") && (reviewsCount.text! == "" || appID.text! == ""){
+        if (source.text! == "App Store" || source.text! == "Database") && (reviewsCount.text!.isEmpty || appID.text!.isEmpty){
             return .failure("Provide all data!")
         }
-        else if date.text! == "" && version.text! == ""{
+        else if date.text!.isEmpty && version.text!.isEmpty{
             return .failure("Provide version or date !")
         }
-        else if constants.dateFormatter.date(from: date.text!) == nil {
+        else if !date.text!.isEmpty && constants.dateFormatter.date(from: date.text!) == nil {
             return .failure("Wrong date!")
         }
         else if source.text! == "App Store" || source.text! == "Database" {

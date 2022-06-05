@@ -271,10 +271,10 @@ class AnalyzeViewController: UIViewController, ChartViewDelegate {
             maxReviewsCount = reviewModel.reviewsCountInDB(appID: appID.text!)
         }
         
-        if source.text! == "" {
+        if source.text!.isEmpty {
             return .failure("Provide source!")
         }
-        if (source.text! == "App Store" || source.text! == "Database") && (reviewsCount.text! == "" || appID.text! == "" || fileName.text! == "") {
+        if (source.text! == "App Store" || source.text! == "Database") && (reviewsCount.text!.isEmpty || appID.text!.isEmpty || fileName.text!.isEmpty) {
             return .failure("Provide all data!")
         }
         else if source.text! == "App Store" || source.text! == "Database" {

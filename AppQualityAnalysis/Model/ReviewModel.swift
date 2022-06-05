@@ -211,17 +211,17 @@ class ReviewModel {
     func filterReviews(date: String = "", version: String = ""){
         var reviewsFiltered = [ReviewBlank]()
         for review in reviews {
-            if date != "" && version != "" {
+            if !date.isEmpty && !version.isEmpty {
                 if ReviewModelConstants.dateFormatter.string(from: review.date) == date && review.version == version {
                     reviewsFiltered.append(review)
                 }
             }
-            else if date != "" {
+            else if !date.isEmpty {
                 if ReviewModelConstants.dateFormatter.string(from: review.date) == date {
                     reviewsFiltered.append(review)
                 }
             }
-            else if version != "" {
+            else if !version.isEmpty {
                 if review.version == version{
                     reviewsFiltered.append(review)
                 }
