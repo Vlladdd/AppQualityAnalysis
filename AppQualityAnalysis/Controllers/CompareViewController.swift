@@ -283,6 +283,9 @@ class CompareViewController: UIViewController, ChartViewDelegate {
         else if date.text! == "" && version.text! == ""{
             return .failure("Provide version or date !")
         }
+        else if constants.dateFormatter.date(from: date.text!) == nil {
+            return .failure("Wrong date!")
+        }
         else if source.text! == "App Store" || source.text! == "Database" {
             if Int(reviewsCount.text!) == nil {
                 return .failure("Count must be number!")

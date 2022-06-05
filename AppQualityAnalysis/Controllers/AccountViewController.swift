@@ -73,7 +73,10 @@ class AccountViewController: UIViewController {
         let nickname = nickname.text!
         let password = password.text!
         let name = name.text!
-        if nickname.count > constants.minCharactersInField && password.count > constants.minCharactersInField && name.count > constants.minCharactersInField && nickname.count < constants.maxCharactersInField && password.count < constants.maxCharactersInField && name.count < constants.maxCharactersInField{
+        if birthDate.text!.isEmpty == false && date == nil {
+            showAlert(message: "Wrong date!")
+        }
+        else if nickname.count > constants.minCharactersInField && password.count > constants.minCharactersInField && name.count > constants.minCharactersInField && nickname.count < constants.maxCharactersInField && password.count < constants.maxCharactersInField && name.count < constants.maxCharactersInField{
             DispatchQueue.global().async {[weak self] in
                 if let self = self {
                     let updateUser = self.userModel.updateUser(nickname: nickname, password: password, name: name, date: date)
